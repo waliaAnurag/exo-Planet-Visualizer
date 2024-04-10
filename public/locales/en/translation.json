@@ -1,0 +1,19 @@
+{  "ENGLISH":"English",
+   "HINDI":"Hindi",
+    "MARATHI":"Marathi",
+    "KANNADA":"Kannad",
+    "Home":"Home",
+    "DASHBOARD_HEADER":"Dashboard",
+    "ABOUT_ME":"About me",
+   "LANDING_PAGE": {
+        "MAIN_HEADING": "Hello, Human",
+        "APP_NAME": "Welcome to CosmoGraphica",
+        "ABOUT_APP_ONE":"Explore the cosmos with our interactive charts and captivating visuals, showcasing the latest NASA exoplanet data.",
+        "ABOUT_APP_TWO":"Embark on a stellar journey through the universe’s most intriguing celestial discoveries.",
+        "FINAL_CALL":"Embark on this stellar journey to explore exoplanets data",
+        "BTN_TEXT":"Start your adventure"
+    },
+    "DASHBOARD":{
+       "CONFIMED_TOTAL":"Confirmed Exoplanet"
+    }
+}
