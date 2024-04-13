@@ -6,10 +6,13 @@ import SuggestionAreaOnSearch from './suggestionCard';
 import FilterInputField from './FilterInputField'
 import { columnMapper } from './table/util';
 import Button from '../../Components/buttons';
+import TableDetailModal from './tableDetailModal';
 
 function DetailContainer() {
   const [selectedPage, setSelectedPage] = useState({ status: true, indexVal: 0 })
   const [recordInPage, setRecordInPage] = useState(15)
+  const [showModal, setShowModal] = useState(false)
+  const [selectedTableRowInfo, setSelectedTableRowInfo] = useState<Object>({})
   const [openSuggestionBox, setOpenSuggestionBox] = useState(false)
   const [fixedColumns, setFixedColumns] = useState<Array<{ columnKey: string; displayableColumnName: string }>>([])
   const [filterList, setFilterList] = useState<Array<{ columnKey: string; displayableColumnName: string }>>([])
@@ -95,25 +98,34 @@ function DetailContainer() {
 
   }
 
-  function removeFilter(name: string, index: number) {
+  function removeFilter(index: number) {
     let tempVar = [...filterList];
     tempVar.splice(index, 1)
     setFilterList(tempVar)
   }
+
+  function showTableDetails(data:any){
+    setSelectedTableRowInfo(data)
+    setShowModal(true)
+  }
+
   return (
-    <div className="tablet:pt-[90px] desktop:pt-16 p-[11px] h-full rounded-md text-landingPage bg-headingFontColor">
+    <div className="tablet:pt-[90px] desktop:pt-16 p-[11px] h-full rounded-md text-landingPage bg-headingFontColor relative">
       <div className="rounded-b-none pt-2 pl-2 pr-2 flex justify-between">
         <div className='desktop:flex desktop:justify-between'>
           <div className="font-display font-bold text-3xl pt-2">
             Exo Planet Data
           </div>
+          {showModal && (<>
+            <TableDetailModal columnMapper={columnMapper} tableInformation={selectedTableRowInfo} showModal={true} modalHandler={(status) => setShowModal(status)} />
+          </>)}
           <div className='w-[20%] pt-2'>
             <Button buttonStyles="" buttonText='Visualize table' buttonFunc={() => console.log("I am clicked")} />
           </div>
         </div>
         <div className="flex w-[40%] pt-2">
           <div className='relative w-[100%]'>
-            <FilterInputField filterList={filterList} removeFilter={(name, index) => removeFilter(name, index)} handleInputChange={(evt) => handleInputChange(evt)} />
+            <FilterInputField filterList={filterList} removeFilter={(index) => removeFilter(index)} handleInputChange={(evt) => handleInputChange(evt)} />
             {openSuggestionBox && (<div ref={ref} className='absolute shadow-lg'>
               <SuggestionAreaOnSearch suggestionData={suggestResult} suggestionOnClick={(item, index) => suggestionOnClick(item, index)} />
             </div>)}
@@ -124,9 +136,11 @@ function DetailContainer() {
         </div>
 
       </div>
+
       <div>
-        <FlexibleTable pageNumber={selectedPage.indexVal + 1} fixedColumns={fixedColumns} filterList={filterList} recordInPage={recordInPage} />
+        <FlexibleTable pageNumber={selectedPage.indexVal + 1} showTableDetails={(index:number)=>showTableDetails(index)} fixedColumns={fixedColumns} filterList={filterList} recordInPage={recordInPage} />
       </div>
+
       <div className="flex mb-12 pt-2 pl-2 pr-2 text-headingFontColor w-[40%] overflow-x-auto">
         {Array.from({ length: totalPageNumbers }, (_, index) => index + 1).map((item, index) => (
           <div
@@ -140,6 +154,7 @@ function DetailContainer() {
         ))}
 
       </div>
+
 
     </div>
 

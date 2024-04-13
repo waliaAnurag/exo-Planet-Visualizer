@@ -7,9 +7,10 @@ interface IProps {
     recordInPage:number;
     filterList:Array<{columnKey:string; displayableColumnName:string}>
     fixedColumns: Array<{columnKey:string; displayableColumnName:string}>
+    showTableDetails: (data:any) => void;
 }
 function FlexibleTable(props: IProps) {
-    const {  pageNumber,recordInPage,filterList, fixedColumns} = props
+    const {  pageNumber,recordInPage,filterList, fixedColumns,showTableDetails} = props
      let LastIndex = 0;
    
      let tempData = [...exoPlanetData];
@@ -61,7 +62,11 @@ function FlexibleTable(props: IProps) {
     }else{
         paginatedExoPlanetData = tempData.slice(startIndexValue, LastIndex);
     }
-    console.log(LastIndex, startIndexValue, exoPlanetData.length)
+
+    function showTableDetailsToParent(data:any){
+        showTableDetails(data)
+    }
+ 
     return (
         <div>
            
@@ -76,8 +81,8 @@ function FlexibleTable(props: IProps) {
                                 {
                                     paginatedExoPlanetData.map((item: any) => {
                                         return (
-                                        <div className='p-3 bg-headingFontColor border-solid border-b-2 border-indigo-500/100 text-landingPage'>
-                                            {item[itemMain.columnKey]  ? item[itemMain.columnKey] : 0.00}
+                                        <div className='p-3 cursor-pointer text-center bg-headingFontColor border-solid border-b-2 border-indigo-500/100 text-landingPage' onClick={()=> !(itemMain.columnKey=="pl_refname"  || itemMain.columnKey=="st_refname" || itemMain.columnKey=="sy_refname") && showTableDetailsToParent(item)}>
+                                            {item[itemMain.columnKey]  ? ((itemMain.columnKey=="pl_refname"  || itemMain.columnKey=="st_refname" || itemMain.columnKey=="sy_refname")?  <div className="underline text-indigo-500/100" dangerouslySetInnerHTML={{ __html: item[itemMain.columnKey] }} />: item[itemMain.columnKey]) : 0.00}
                                         </div>
                                         )
                                     })
