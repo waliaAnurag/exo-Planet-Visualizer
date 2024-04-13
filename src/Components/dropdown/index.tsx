@@ -4,7 +4,7 @@ import Button from '../buttons'
 interface IProps {
     dropdownCollapsedText: string;
     menuItemLists: Array<string>;
-    buttonOnClick: (evt?: any) => void;
+    buttonOnClick?: (evt?: any) => void;
     menuItemOnClick: (index:number,evt?:Event) => void;
     buttonStyles?: string;
     menuItemStyles?: Object;
@@ -16,7 +16,7 @@ function Dropdown(props: IProps) {
 
     function dropdownOpenClose(evt:any){
         setOpen(!open);
-        buttonOnClick(evt)
+        buttonOnClick && buttonOnClick(evt)
      }
 
      function menuItemHandler(index:number,evt?:Event){
