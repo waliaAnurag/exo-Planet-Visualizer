@@ -44,6 +44,8 @@ function FlexibleTable(props: IProps) {
             let tempArr = fixedColumns.concat(filterList)
             setFinalisedColumnsValue(tempArr)
             console.log(tempArr)
+        }else{
+            setFinalisedColumnsValue(columnMapper)
         }
     },[filterList])
    
