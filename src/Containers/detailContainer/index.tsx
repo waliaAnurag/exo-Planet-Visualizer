@@ -141,7 +141,7 @@ function DetailContainer() {
         <FlexibleTable pageNumber={selectedPage.indexVal + 1} showTableDetails={(index:number)=>showTableDetails(index)} fixedColumns={fixedColumns} filterList={filterList} recordInPage={recordInPage} />
       </div>
 
-      <div className="flex mb-12 pt-2 pl-2 pr-2 text-headingFontColor w-[40%] overflow-x-auto">
+      <div className="flex mb-12 pt-2 pl-2 pr-2 text-headingFontColor w-[40%] overflow-x-auto m-auto">
         {Array.from({ length: totalPageNumbers }, (_, index) => index + 1).map((item, index) => (
           <div
             key={index}
