@@ -1,8 +1,9 @@
-import Lottie from "react-lottie";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Lottie from "react-lottie";
 import ExoplanetAnim from "../../assets/lottieAssets/exoPlanet.json"
 import TessAnim from "../../assets/lottieAssets/tessAnim.json"
-import { useNavigate } from "react-router-dom";
+
 
 function Dashboard() {
   const { t } = useTranslation();

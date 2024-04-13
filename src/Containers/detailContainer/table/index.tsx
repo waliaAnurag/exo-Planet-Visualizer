@@ -1,6 +1,6 @@
-import { exoPlanetData } from "../../../data/exoPlanet";
 import { useEffect, useState } from "react";
 import { columnMapper } from "./util";
+import { exoPlanetData } from "../../../data/exoPlanet";
 
 interface IProps {
     pageNumber:number;
