@@ -1,7 +1,7 @@
-import { routerType } from "../types/router.types";
-import Dashboard from "./dashboard";
-import DetailContainer from "./detailContainer";
-import LandingPage from "./landingPage";
+import { routerType } from "./types/router.types";
+import Dashboard from "../Containers/dashboard";
+import DetailContainer from "../Containers/detailContainer";
+import LandingPage from "../Containers/landingPage";
 
 const routerData:routerType[]=[
     {

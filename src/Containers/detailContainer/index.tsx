@@ -10,10 +10,10 @@ import { columnMapper } from './table/util';
 
 import FlexibleTable from './table'
 import Dropdown from '../../Components/dropdown';
-import SuggestionAreaOnSearch from './suggestionCard';
-import FilterInputField from './FilterInputField'
+import SuggestionAreaOnSearch from './Components/suggestionCard';
+import FilterInputField from './Components/FilterInputField'
 import Button from '../../Components/buttons';
-import TableDetailModal from './tableDetailModal';
+import TableDetailModal from './Components/tableDetailModal';
 
 function DetailContainer() {
   const [selectedPage, setSelectedPage] = useState({ status: true, indexVal: 1 })
