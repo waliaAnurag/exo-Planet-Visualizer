@@ -1,6 +1,6 @@
-import { exoPlanetData } from "../../../data/exoPlanet";
 import { useEffect, useState } from "react";
 import { columnMapper } from "./util";
+import { exoPlanetData } from "../../../data/exoPlanet";
 
 interface IProps {
     pageNumber:number;
@@ -44,6 +44,8 @@ function FlexibleTable(props: IProps) {
             let tempArr = fixedColumns.concat(filterList)
             setFinalisedColumnsValue(tempArr)
             console.log(tempArr)
+        }else{
+            setFinalisedColumnsValue(columnMapper)
         }
     },[filterList])
    

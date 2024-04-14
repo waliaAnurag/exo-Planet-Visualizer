@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+
 interface IProps {
     columnMapper: Array<{ columnKey: string; displayableColumnName: string }>
     tableInformation: any;

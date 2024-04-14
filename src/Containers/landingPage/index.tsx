@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Lottie from 'react-lottie';
+
+import Button from "../../Components/buttons";
+
 import MainLoader from "../../assets/lottieAssets/MainLoader.json"
 import Astranaut from "../../assets/lottieAssets/SpaceMan.json"
-import { useNavigate } from "react-router-dom";
-import Button from "../../Components/buttons";
 
 function HomeScreen() {
     const { t } = useTranslation();

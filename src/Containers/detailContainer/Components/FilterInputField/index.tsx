@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import Tooltip from "../../../Components/tooltip";
+import Tooltip from "../../../../Components/tooltip";
 
 interface IProps {
     handleInputChange: (evt?: any) => void
