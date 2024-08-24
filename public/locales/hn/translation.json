@@ -15,6 +15,7 @@
         "BTN_TEXT":"अपना साहसिक कार्य शुरू करें"
      },
      "DASHBOARD":{
-        "CONFIMED_TOTAL":"कुल पुष्ट एक्सो ग्रह"
+        "CONFIMED_TOTAL":"कुल पुष्ट एक्सो ग्रह",
+        "TESS_CONFIMED_TOTAL": "TESS कुल पुष्ट एक्सो ग्रह"
      }
  }
