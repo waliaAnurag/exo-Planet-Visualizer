@@ -15,6 +15,7 @@
         "BTN_TEXT":"आपले साहस सुरू करा"
      },
      "DASHBOARD":{
-        "CONFIMED_TOTAL":"एकूण पुष्टी केलेला Exo ग्रह"
+        "CONFIMED_TOTAL":"एकूण पुष्टी केलेला Exo ग्रह",
+        "TESS_CONFIMED_TOTAL": "एकूण पुष्टी केलेला Exo ग्रह"
      }
  }
