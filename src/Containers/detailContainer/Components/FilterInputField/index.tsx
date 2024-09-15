@@ -6,9 +6,10 @@ interface IProps {
     handleInputChange: (evt?: any) => void
     filterList: Array<{ columnKey: string; displayableColumnName: string }>
     removeFilter: (index:number) => void
+    inputFieldText : string;
 }
 function FilterInputField(props: IProps) {
-    const { handleInputChange, filterList,removeFilter } = props;
+    const { handleInputChange, filterList,removeFilter,inputFieldText } = props;
     return (
         <div className="w-[100%] rounded-md border-solid border-2 border-indigo-500/100 ">
         <div className='overflow-y-auto flex-wrap flex w-[100%] p-2'>
@@ -25,7 +26,7 @@ function FilterInputField(props: IProps) {
             
             
         </div>
-        <input className="outline-none ml-2 rounded-md border-none bg-transparent" placeholder="Add Filters" onChange={(evt) => handleInputChange(evt)} />
+        <input value={inputFieldText} className="outline-none ml-2 rounded-md border-none bg-transparent" placeholder="Add Filters" onChange={(evt) => handleInputChange(evt)} />
         </div>
        
     )

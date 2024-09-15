@@ -27,7 +27,7 @@ function DetailContainer() {
   const [filterList, setFilterList] = useState<Array<{ columnKey: string; displayableColumnName: string }>>([])
   const [suggestResult, setSuggestionResult] = useState<Array<{ columnKey: string; displayableColumnName: string }>>([])
   const [columnMapperData, setColumnMapper] = useState<Array<{ columnKey: string; displayableColumnName: string }>>([])
- 
+  const [inputFieldText, setInputFieldText] = useState("")
   const ref = useRef<HTMLDivElement>(null);
 
   const recordsArray = ['10 records', '15 records', '20 records', "25 records", "30 records", "40 records", "50 records"]
@@ -61,10 +61,10 @@ function DetailContainer() {
       }
     }
     // Bind
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
       // dispose
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
 
   }, [ref, closeSuggestion]);
@@ -98,16 +98,18 @@ function DetailContainer() {
       let tempColumnMapper = [...columnMapperData]
       setSuggestionResult(suggestionTemp.filter((evt) => evt.displayableColumnName != itemClicked))
       setColumnMapper(tempColumnMapper.filter((evt) => evt.displayableColumnName != itemClicked))
-
+      setInputFieldText("")
+      closeSuggestion()
     } else {
       console.log("an error occurred")
     }
   }
 
   function handleInputChange(evt: React.ChangeEvent<HTMLInputElement>) {
+    setInputFieldText(evt.target.value)
     if (evt.target?.value) {
       FindSuggestion(evt.target.value)
-      setOpenSuggestionBox(true)
+      setOpenSuggestionBox(true)  
     }
   }
   function pageValueSetter(indexValRec: number) {
@@ -209,8 +211,8 @@ function DetailContainer() {
         </div>
         <div className="flex w-[40%] pt-2">
           <div className='relative w-[100%]'>
-            <FilterInputField filterList={filterList} removeFilter={(index) => removeFilter(index)} handleInputChange={(evt) => handleInputChange(evt)} />
-            {openSuggestionBox && (<div ref={ref} className='absolute shadow-lg'>
+            <FilterInputField inputFieldText={inputFieldText} filterList={filterList} removeFilter={(index) => removeFilter(index)} handleInputChange={(evt) => handleInputChange(evt)} />
+            {openSuggestionBox && (<div ref={ref} id={"suggestion-area"} className='absolute shadow-lg'>
               <SuggestionAreaOnSearch suggestionData={suggestResult} suggestionOnClick={(item, index) => suggestionOnClick(item, index)} />
             </div>)}
           </div>
@@ -235,7 +237,7 @@ function DetailContainer() {
         <div className='flex'>{chunkPageArr.map((item, index) => (
           <div
             key={index}
-            className={`h-12 w-16 mr-3 cursor-pointer bg-indigo-500/100 rounded-sm text-center p-2 ${selectedPage.status && selectedPage.indexVal === item && 'border-solid border-2 border-landingPage'
+            className={`h-12 w-16 mr-3 cursor-pointer bg-landingPage rounded-sm text-center p-2 ${selectedPage.status && selectedPage.indexVal === item && 'border-solid border-2 border-landingPage'
               }`}
             onClick={() => pageValueSetter(item)}
           >

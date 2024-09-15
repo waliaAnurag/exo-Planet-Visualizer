@@ -1,30 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
-// import ExoplanetAnim from "../../assets/lottieAssets/exoPlanet.json"
-// import TessAnim from "../../assets/lottieAssets/tessAnim.json"
 import {CardData} from "./utils"
 
 function Dashboard() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: ExoplanetAnim,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice"
-  //   }
-  // };
-  // const defaultOptionsTess = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: TessAnim,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice"
-  //   }
-  // };
+
   function navigateTo(screenPath:string){
     navigate(screenPath)
 }
