@@ -12,36 +12,37 @@ function Dashboard() {
     navigate(screenPath)
 }
   return (
-    <div className="w-full h-screen left-0 top-[57px] pt-16 p-[11px] bg-landingPage text-headingFontColor">
-      <div className="flex justify-between flex-wrap">
+    <div className="w-full h-screen p-[11px] bg-landingPage text-headingFontColor">
+      <div className="h-[95px]"/>
+      <header className="flex justify-between flex-wrap">
         {
           CardData.map((item: any,index:number)=>{
             return(
-              <div key={index} className={`flex justify-between cursor-pointer  w-[30%] h-auto bg-headingFontColor p-3 rounded-md border-solid border-2 border-indigo-500/100`} onClick={() => navigateTo('/dashboard/info')}>
-                <div className="self-center">
-                  <div className="text-lg text-landingPage font-display font-bold leading-normal">
+              <section key={index} className={`flex justify-between cursor-pointer  w-[30%] h-auto bg-headingFontColor p-3 rounded-md border-solid border-2 border-indigo-500/100`} onClick={() => navigateTo('/dashboard/info')}>
+                <section className="self-center">
+                  <h2 className="text-lg text-landingPage font-display font-bold leading-normal">
                     {t(item.cardHeading)}
-                  </div>
+                  </h2>
                   <br />
-                  <div className="text-lg text-landingPage font-display font-bold leading-normal">{item.totalDiscovered}</div>
+                  <span className="text-lg text-landingPage font-display font-bold leading-normal">{item.totalDiscovered}</span>
                   <br />
-                  <div className="text-lg text-landingPage font-display font-bold leading-normal">
-                    {item.untill} {item.date}
-                  </div>
-                </div>
-                <div>
+                  <span className="text-lg text-landingPage font-display font-bold leading-normal">
+                    {item.untill} <br/> {item.date}
+                  </span>
+                </section>
+                <section>
                   <Lottie
                     options={item.defaultOption}
                     height={'100%'}
                     width={'100%'}
                   />
-                </div>
-              </div>
+                </section>
+              </section>
             )
           })
         }
       
-      </div>
+      </header>
       <div className="mt-[12px] p-[12px] bg-headingFontColor rounded-md border-solid border-2 border-indigo-500/100">
       
       </div>

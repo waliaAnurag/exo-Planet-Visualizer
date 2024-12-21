@@ -1,102 +1,102 @@
-import { useEffect, useState } from "react";
-import { columnMapper } from "./util";
-import { exoPlanetData } from "../../../data/exoPlanet";
+import React, { useEffect, useState } from "react";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TablePagination from "@mui/material/TablePagination";
+import { Paper } from "@mui/material";
+
+
+
+
 
 interface IProps {
-    pageNumber:number;
-    recordInPage:number;
-    filterList:Array<{columnKey:string; displayableColumnName:string}>
-    fixedColumns: Array<{columnKey:string; displayableColumnName:string}>
-    showTableDetails: (data:any) => void;
+    column: {
+        columnKey: string;
+        displayableColumnName: string;
+    }[]
+    row: any;
+    handleOpenModal : (data:any)=> void;
 }
 function FlexibleTable(props: IProps) {
-    const {  pageNumber,recordInPage,filterList, fixedColumns,showTableDetails} = props
-     let LastIndex = 0;
-   
-     let tempData = [...exoPlanetData];
-   
-   
-     const[RecordInPageValue, setRecordInPageValue] = useState(recordInPage)
-     const [finalisedColumnsValue, setFinalisedColumnsValue] = useState<Array<{columnKey:string; displayableColumnName:string}>>([])
-    const [startIndexValue, setStartIndexValue] = useState(pageNumber*recordInPage - recordInPage);
- 
-     LastIndex = startIndexValue + RecordInPageValue;
-// the pagination needs to save data what was last startindex based on that we will derive last Index using record in page
+    const { column, row, handleOpenModal } = props
+    const [finalisedColumnsValue,setColumnMapper] = useState<Array<{ columnKey: string; displayableColumnName: string }>>(column)
+    const [rowVal,setRowData] = useState(row)
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(50);
 
-     useEffect(()=>{
-        setFinalisedColumnsValue(columnMapper)
-     },[])
-
-     useEffect(()=>{
-        setRecordInPageValue(recordInPage)
-        
-        LastIndex = startIndexValue + RecordInPageValue;
-     },[recordInPage])
-
-     useEffect(()=>{
-        
-        setStartIndexValue(pageNumber*recordInPage - recordInPage)
-    
-     },[pageNumber])
-     
     useEffect(()=>{
-        if(filterList && filterList.length >= 1){
-            let tempArr = fixedColumns.concat(filterList)
-            setFinalisedColumnsValue(tempArr)
-            console.log(tempArr)
-        }else{
-            setFinalisedColumnsValue(columnMapper)
-        }
-    },[filterList])
-   
-    
-    let paginatedExoPlanetData:any[] = []
+        setRowData(row)
+        setColumnMapper(column)
+    },[row])
+    const handleChangePage = (event: unknown, newPage: number) => {
+        setPage(newPage);
+    };
 
-    if(LastIndex > exoPlanetData.length){
-        LastIndex = exoPlanetData.length - 1
-    }
+    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setRowsPerPage(+event.target.value);
+        setPage(0);
+    };
 
-    if(startIndexValue >= exoPlanetData.length){
-        console.log("Not permitted")
-        paginatedExoPlanetData = []
-    
-        
-    }else{
-        paginatedExoPlanetData = tempData.slice(startIndexValue, LastIndex);
-    }
-
-    function showTableDetailsToParent(data:any){
-        showTableDetails(data)
-    }
- 
     return (
         <div>
-           
-            <div className="font-display flex text-xl overflow-x-auto overflow-y-auto w-[100%] whitespace-nowrap">
-                {
-                    finalisedColumnsValue.map((itemMain: any) => {
-                        return (
-                            <div className="w-[100%]">
-                                <div className='font-bold p-3 border-solid border-b-2 border-indigo-500/100 bg-headingFontColor text-landingPage w-[100%]'>
-                                    {itemMain.displayableColumnName}
-                                </div>
-                                {
-                                    paginatedExoPlanetData.map((item: any) => {
+
+            <div className="font-display flex text-xl overflow-x-auto overflow-y-auto w-[100%]  whitespace-nowrap">
+                <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                    <TableContainer sx={{
+                        maxHeight : 450
+                    }}>
+                        <Table stickyHeader aria-label="sticky table">
+                            <TableHead>
+                                <TableRow>
+                                    {finalisedColumnsValue.map((column) => (
+                                        <TableCell
+                                            key={column.columnKey}
+                                            align={"center"}
+                                            style={{ minWidth: 250 }}
+                                        >
+                                            {column.displayableColumnName}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {rowVal
+                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                    .map((row: any) => {
                                         return (
-                                        <div className='p-3 cursor-pointer text-center bg-headingFontColor border-solid border-b-2 border-indigo-500/100 text-landingPage' onClick={()=> !(itemMain.columnKey=="pl_refname"  || itemMain.columnKey=="st_refname" || itemMain.columnKey=="sy_refname") && showTableDetailsToParent(item)}>
-                                            {item[itemMain.columnKey]  ? ((itemMain.columnKey=="pl_refname"  || itemMain.columnKey=="st_refname" || itemMain.columnKey=="sy_refname")?  <div className="underline text-indigo-500/100" dangerouslySetInnerHTML={{ __html: item[itemMain.columnKey] }} />: item[itemMain.columnKey]) : 0.00}
-                                        </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        )
+                                            <TableRow className="cursor-pointer" hover role="checkbox" tabIndex={-1} key={row.pl_name} onClick={()=>handleOpenModal(row)}>
+                                                {finalisedColumnsValue.map((column) => {
+                                                    const value = row[column.columnKey];
+                                                    return (
+                                                        <TableCell key={column.columnKey}
+                                                            align={"center"}>
+                                                            {column.columnKey ? ((column.columnKey == "pl_refname" || column.columnKey == "st_refname" || column.columnKey == "sy_refname") ? <div className="underline text-indigo-500/100" dangerouslySetInnerHTML={{ __html: value }} /> : value) : 0.00}
+                                                        </TableCell>
+                                                    );
+                                                })}
+                                            </TableRow>
+                                        );
+                                    })}
+                            </TableBody>
 
-                    })
-                }
+                        </Table>
 
+                    </TableContainer>
+                    <TablePagination
+                        rowsPerPageOptions={[50, 125, 250, 400, 500]}
+                        component="div"
+                        count={rowVal.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
+                </Paper>
             </div>
-            
+
 
         </div>
     )

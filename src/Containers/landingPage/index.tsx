@@ -30,9 +30,9 @@ function HomeScreen() {
         navigate(screenPath)
     }
     return (
-        <div className='h-[100%] w-full left-0 overflow-auto'>
+        <main className='h-[100%] w-full left-0 overflow-auto'>
 
-            <div className='desktop:flex desktop:h-7/10 tablet:h-auto tablet:pb-3 bg-landingPage'>
+            <section className='desktop:flex desktop:h-7/10 tablet:h-auto tablet:pb-3 bg-landingPage'>
                 <div className='tablet:my-10 tablet:mx-auto w-2/5 pl-3'>
                     <Lottie
                         options={defaultOptions}
@@ -49,15 +49,15 @@ function HomeScreen() {
                         {t("LANDING_PAGE.APP_NAME")}
                     </h3>
 
-                    <span className='text-lg opacity-0 text-headingFontColor font-display font-bold leading-normal animate-fadeInAnimation'>
-                        {t("LANDING_PAGE.ABOUT_APP_ONE")}</span><br />
-                    <span className='text-lg opacity-0 text-headingFontColor font-display font-bold leading-normal animate-fadeInAnimation'>
+                    <p className='text-lg opacity-0 text-headingFontColor font-display font-bold leading-normal animate-fadeInAnimation'>
+                        {t("LANDING_PAGE.ABOUT_APP_ONE")}</p><br />
+                    <p className='text-lg opacity-0 text-headingFontColor font-display font-bold leading-normal animate-fadeInAnimation'>
                         {t("LANDING_PAGE.ABOUT_APP_TWO")}
-                    </span>
+                    </p>
                 </div>
 
-            </div>
-            <div className='w-full h-3/10'>
+            </section>
+            <section className='w-full h-3/10'>
                 <center className='my-10 mx-auto w-1/2'>
                     <Lottie
                         options={newDefaultOptions}
@@ -66,18 +66,16 @@ function HomeScreen() {
                     />
                 </center>
 
-                <div className='font-display font-bold text-3xl text-landingPage leading-normal mb-12 text-center w-full desktop:flex desktop:justify-center'>
-
+                <h2 className='font-display font-bold text-3xl text-landingPage leading-normal mb-12 text-center w-full desktop:flex desktop:justify-center'>
                    {t("LANDING_PAGE.FINAL_CALL")}
-                </div>
+                </h2>
                 <div className='my-2 mx-auto flex justify-center'>
                     <Button buttonText={t("LANDING_PAGE.BTN_TEXT")} buttonFunc={() => navigateTo("/dashboard")} buttonStyles={""}/>
-                    
                 </div>
 
-            </div>
+            </section>
            
-        </div>
+        </main>
     )
 }
 

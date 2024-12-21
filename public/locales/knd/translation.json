@@ -16,6 +16,9 @@
      },
      "DASHBOARD":{
         "CONFIMED_TOTAL":"ಎಕ್ಸೋಪ್ಲಾನೆಟ್ ದೃಢಪಡಿಸಿದೆ",
-        "TESS_CONFIMED_TOTAL":"ಎಕ್ಸೋಪ್ಲಾನೆಟ್ ದೃಢಪಡಿಸಿದೆ"
+        "TESS_CONFIMED_TOTAL":"ಎಕ್ಸೋಪ್ಲಾನೆಟ್ ದೃಢಪಡಿಸಿದೆ",
+        "CONFIGURATOR":{
+        "HEADING" : "ಟೇಬಲ್ ಕಾನ್ಫಿಗರರೇಟರ್"
+       }
      }
  }

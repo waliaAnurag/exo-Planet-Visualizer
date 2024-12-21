@@ -15,6 +15,9 @@
     },
     "DASHBOARD":{
        "CONFIMED_TOTAL":"Confirmed Exoplanet",
-       "TESS_CONFIMED_TOTAL": "TESS Confirmed Exoplanet"
+       "TESS_CONFIMED_TOTAL": "TESS Confirmed Exoplanet",
+       "CONFIGURATOR":{
+        "HEADING" : "Table Configurator"
+       }
     }
 }

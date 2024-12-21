@@ -16,7 +16,7 @@ function TableDetailModal(props: IProps) {
         >
 
             <div className="modal bg-white rounded-lg p-4 w-[80%] h-[70%] overflow-y-auto overflow-x-hidden">
-                <div className="font-display font-bold text-3xl text-center">
+                <div className=" absolute bg-white w-[80%] left-[10%] top-[15%] pb-[20px] pt-[30px] font-display font-bold text-3xl text-center">
                     Selected Table Row Information
                 </div>
                 <div className=" bg-indigo-50 rounded-full w-45 h-45 absolute top-[13%] z-400 left-[88.6%] cursor-pointer" onClick={() => modalHandler(false)}>
