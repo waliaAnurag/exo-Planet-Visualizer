@@ -31,23 +31,21 @@ export default function DetailsContainer(){
 
   return(
     <div className="tablet:pt-[90px] desktop:pt-16 p-[11px] overflow-hidden">
-      <div className="h-[2px]"/>
+      <div className="h-[15px]"/>
       <header className="flex justify-between">
-        <div className="flex row-auto justify-between">
-          <span className="font-display font-bold text-3xl pt-2">
+        <div className="flex row-auto justify-between gap-[20px] pt-4 items-center">
+          <span className="font-display font-bold text-3xl">
             Exo Planet Data
           </span>
-          <div className='w-[20%] pt-2'>
-            <Button buttonText='Visualize table' buttonFunc={() => console.log("I am clicked")} />
-          </div>
+          <Button buttonText='Visualize table' buttonFunc={() => console.log("I am clicked")} />
         </div>
         <div className='ml-2 pt-2'>
            <Button buttonText='Table Configurator' buttonFunc={() => handleConfiguratorClick()} />
         </div>
       </header>
-      <div className="h-[100%]">
+      <main>
         <FlexibleTable column={columnData} row={rowData} handleOpenModal={handleOpenModal}/>
-      </div>
+        </main>
       <footer>
 
       </footer>

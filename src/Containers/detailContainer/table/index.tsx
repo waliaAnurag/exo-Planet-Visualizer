@@ -55,7 +55,7 @@ function FlexibleTable(props: IProps) {
                                         <TableCell
                                             key={column.columnKey}
                                             align={"center"}
-                                            style={{ minWidth: 250 }}
+                                            style={{ minWidth: 250, fontWeight:900, fontSize:"18px" }}
                                         >
                                             {column.displayableColumnName}
                                         </TableCell>

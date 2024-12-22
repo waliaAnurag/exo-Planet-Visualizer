@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Lottie from "react-lottie";
 import {CardData} from "./utils"
+import ErrorBounday from "../../Components/ErrorBoundary";
 
 function Dashboard() {
   const { t } = useTranslation();
@@ -12,14 +13,15 @@ function Dashboard() {
     navigate(screenPath)
 }
   return (
+    <ErrorBounday useDefaultFallback={true}>
     <div className="w-full h-screen p-[11px] bg-landingPage text-headingFontColor">
       <div className="h-[95px]"/>
-      <header className="flex justify-between flex-wrap">
+      <header className="flex flex-row justify-between gap-2">
         {
           CardData.map((item: any,index:number)=>{
             return(
-              <section key={index} className={`flex justify-between cursor-pointer  w-[30%] h-auto bg-headingFontColor p-3 rounded-md border-solid border-2 border-indigo-500/100`} onClick={() => navigateTo('/dashboard/info')}>
-                <section className="self-center">
+              <section key={index} className={`flex justify-between cursor-pointer h-auto bg-headingFontColor p-3 rounded-md border-solid border-2 border-indigo-500/100 w-[40%]`} onClick={() => navigateTo('/dashboard/info')}>
+                <section className="self-center w-[40%]">
                   <h2 className="text-lg text-landingPage font-display font-bold leading-normal">
                     {t(item.cardHeading)}
                   </h2>
@@ -30,10 +32,10 @@ function Dashboard() {
                     {item.untill} <br/> {item.date}
                   </span>
                 </section>
-                <section>
+                <section className="w-[65%]">
                   <Lottie
                     options={item.defaultOption}
-                    height={'100%'}
+                    height={'80%'}
                     width={'100%'}
                   />
                 </section>
@@ -47,6 +49,7 @@ function Dashboard() {
       
       </div>
     </div>
+    </ErrorBounday>
   )
 }
 
