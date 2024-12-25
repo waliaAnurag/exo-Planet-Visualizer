@@ -16,8 +16,17 @@
     "DASHBOARD":{
        "CONFIMED_TOTAL":"Confirmed Exoplanet",
        "TESS_CONFIMED_TOTAL": "TESS Confirmed Exoplanet",
+       "EXOPLANET_HEADING" : "Exo Planet Data",
        "CONFIGURATOR":{
-        "HEADING" : "Table Configurator"
+        "HEADING" : "Table Configurator",
+         "COL_FILTER" : "Column Filter",
+         "COL_FILTER_HEADING" : "Configure Table Columns",
+         "STAR_PLANET_CONFIGURE": "Configure Number of Stars and Planets",
+         "NUMBER_OF_PLANET":"Set Number of Planets :",
+         "NUMBER_OF_STARS" : "Set Number of Stars :",
+         "YEAR_DURATION" : "Year Duration",
+         "START_YEAR" : "Start Year",
+         "END_YEAR" : "End Year"
        }
     }
 }

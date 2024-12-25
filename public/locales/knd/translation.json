@@ -17,8 +17,17 @@
      "DASHBOARD":{
         "CONFIMED_TOTAL":"ಎಕ್ಸೋಪ್ಲಾನೆಟ್ ದೃಢಪಡಿಸಿದೆ",
         "TESS_CONFIMED_TOTAL":"ಎಕ್ಸೋಪ್ಲಾನೆಟ್ ದೃಢಪಡಿಸಿದೆ",
+        "EXOPLANET_HEADING" : "ಎಕ್ಸೋ ಪ್ಲಾನೆಟ್ ಡೇಟಾ",
         "CONFIGURATOR":{
-        "HEADING" : "ಟೇಬಲ್ ಕಾನ್ಫಿಗರರೇಟರ್"
+        "HEADING" : "ಟೇಬಲ್ ಕಾನ್ಫಿಗರರೇಟರ್",
+         "COL_FILTER" : "ಕಾಲಮ್ ಫಿಲ್ಟರ್",
+         "COL_FILTER_HEADING" : "ಟೇಬಲ್ ಕಾಲಮ್ಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ",
+         "STAR_PLANET_CONFIGURE": "ನಕ್ಷತ್ರಗಳು ಮತ್ತು ಗ್ರಹಗಳ ಸಂಖ್ಯೆಯನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ",
+         "NUMBER_OF_PLANET":"ಗ್ರಹಗಳ ಸಂಖ್ಯೆಯನ್ನು ಹೊಂದಿಸಿ:",
+         "NUMBER_OF_STARS" : "ನಕ್ಷತ್ರಗಳ ಸಂಖ್ಯೆಯನ್ನು ಹೊಂದಿಸಿ:",
+         "YEAR_DURATION" : "ವರ್ಷದ ಅವಧಿ",
+         "START_YEAR" : "ಆರಂಭದ ವರ್ಷ",
+         "END_YEAR" : "ವರ್ಷಾಂತ್ಯ"
        }
      }
  }

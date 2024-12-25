@@ -16,9 +16,18 @@
      },
      "DASHBOARD":{
         "CONFIMED_TOTAL":"एकूण पुष्टी केलेला Exo ग्रह",
-        "TESS_CONFIMED_TOTAL": "एकूण पुष्टी केलेला Exo ग्रह",
+        "TESS_CONFIMED_TOTAL": "एकूण पुष्टी केलेला एक्सो ग्रह",
+        "EXOPLANET_HEADING" : "एक्सो प्लॅनेट डेटा",
         "CONFIGURATOR":{
-        "HEADING" : "टेबल कॉन्फिगरेटर"
+        "HEADING" : "टेबल कॉन्फिगरेटर",
+         "COL_FILTER" : "स्तंभ फिल्टर",
+         "COL_FILTER_HEADING" : "टेबल स्तंभ कॉन्फिगर करा",
+         "STAR_PLANET_CONFIGURE": "तारे आणि ग्रहांची संख्या कॉन्फिगर करा",
+         "NUMBER_OF_PLANET":"ग्रहांची संख्या सेट करा:",
+         "NUMBER_OF_STARS" : "ताऱ्यांची संख्या सेट करा:",
+         "YEAR_DURATION" : "वर्ष कालावधी",
+         "START_YEAR" : "सुरुवातीचे वर्ष",
+         "END_YEAR" : "शेवटचे वर्ष"
        }
      }
  }

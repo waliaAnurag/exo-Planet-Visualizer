@@ -17,8 +17,17 @@
      "DASHBOARD":{
         "CONFIMED_TOTAL":"कुल पुष्ट एक्सो ग्रह",
         "TESS_CONFIMED_TOTAL": "TESS कुल पुष्ट एक्सो ग्रह",
+        "EXOPLANET_HEADING" : "एक्सो प्लैनेट डेटा",
         "CONFIGURATOR":{
-        "HEADING" : "टेबल विन्यासकर्ता"
+        "HEADING" : "टेबल विन्यासकर्ता",
+        "COL_FILTER" : "कॉलम फ़िल्टर",
+        "COL_FILTER_HEADING" : "तालिका कॉलम कॉन्फ़िगर करें",
+        "STAR_PLANET_CONFIGURE": "तारों और ग्रहों की संख्या कॉन्फ़िगर करें",
+        "NUMBER_OF_PLANET":"ग्रहों की संख्या निर्धारित करें :",
+        "NUMBER_OF_STARS" : "सितारों की संख्या निर्धारित करें :",
+        "YEAR_DURATION" : "वर्ष अवधि",
+        "START_YEAR" : "आरंभ वर्ष",
+        "END_YEAR" : "ख़त्म होने वाला साल"
        }
      }
  }

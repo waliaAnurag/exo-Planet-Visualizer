@@ -15,7 +15,7 @@ function Dashboard() {
   return (
     <ErrorBounday useDefaultFallback={true}>
       <div className="w-full h-screen p-[11px] bg-landingPage text-headingFontColor">
-        <div className="h-[95px]" />
+        <div className="h-[95px]"/>
         <header className="flex flex-row justify-between gap-2">
           {
             CardData.map((item: any, index: number) => {
