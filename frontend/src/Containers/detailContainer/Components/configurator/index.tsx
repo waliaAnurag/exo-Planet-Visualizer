@@ -4,8 +4,8 @@ import Slider from '@mui/material/Slider';
 import TextField from '@mui/material/TextField';
 import MultiSelect from '../../../../Components/MultiSelect';
 import Button from '../../../../Components/buttons';
-import BasicModal from '../../../../Components/Modal/basicModal';
 import { dropdownOptions, TableConfigurationMeta } from '../../utility/types';
+import PopUps from '../../../../Components/Modal/Modal';
 
 interface IProps {
     showModal: boolean;
@@ -61,12 +61,14 @@ function TabelConfigurator({ showModal, setShowModal, columnData, ConfigureTable
     }
 
     return (
-        <BasicModal
+        <PopUps
             heading={t("DASHBOARD.CONFIGURATOR.HEADING")}
             showModal={showModal}
             setShowModal={(status: boolean) => setShowModal(status)}
+            width='75%'
+            modalName="table configurator"
         >
-            <div>
+            <div className='bg-white'>
                 <div className="m-3 font-display text-xl flex justify-between flex-wrap">
                     <div>
                         <h4 className='mb-[5px] font-bold'>{t("DASHBOARD.CONFIGURATOR.COL_FILTER_HEADING")}</h4>
@@ -121,7 +123,7 @@ function TabelConfigurator({ showModal, setShowModal, columnData, ConfigureTable
                 </div>
 
             </div>
-        </BasicModal>
+        </PopUps>
     )
 
 }
