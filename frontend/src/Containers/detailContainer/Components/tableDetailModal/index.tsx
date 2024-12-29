@@ -1,0 +1,50 @@
+import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { TableModalData } from '../../utility/types';
+
+interface IProps {
+    columnMapper: TableModalData[]
+    tableInformation: any;
+    showModal: boolean;
+    modalHandler: (status: boolean) => void;
+}
+function TableDetailModal(props: IProps) {
+    const { columnMapper, tableInformation, showModal, modalHandler } = props;
+
+    const modalInfo=(columnMapperData:TableModalData[],tableInformationData:any)=>{
+            return columnMapperData.map((item: any) => {
+                return (
+                    <div className="flex justify-between p-4 border-solid border-2">
+                        <div>
+                            {item.displayableColumnName}
+                        </div>
+                        <div className="text-right">
+                            {tableInformationData[item.columnKey]  ? ((item.columnKey=="pl_refname"  || item.columnKey=="st_refname" || item.columnKey=="sy_refname")?  <div className="underline text-indigo-500/100" dangerouslySetInnerHTML={{ __html: tableInformationData[item.columnKey] }} />: tableInformationData[item.columnKey]) : 0.00}
+                        </div>
+                    </div>
+                )
+            })
+        
+    }
+    return showModal ? (
+        <div
+            className="fixed z-50 bg-black bg-opacity-40 top-0 bottom-0 left-0 right-0 w-full h-full flex justify-center items-center"
+        >
+
+            <div className="modal bg-white rounded-lg p-4 w-[80%] h-[70%] overflow-y-auto overflow-x-hidden">
+                <div className=" absolute bg-white w-[80%] left-[10%] top-[15%] pb-[20px] pt-[30px] font-display font-bold text-3xl text-center">
+                    Selected Table Row Information
+                </div>
+                <div className=" bg-indigo-50 rounded-full w-45 h-45 absolute top-[13%] z-400 left-[88.6%] cursor-pointer" onClick={() => modalHandler(false)}>
+                    <FontAwesomeIcon size="2x" icon={faCircleXmark} />
+                </div>
+                <div className="m-3 font-display text-xl">
+                    {modalInfo(columnMapper,tableInformation)}
+                </div>
+            </div>
+        </div>
+    ) : null
+}
+
+export default TableDetailModal
