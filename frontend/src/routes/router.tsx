@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { routerType } from "./types/router.types";
 import routerData from "./routerData";
+import React from "react";
 
 const Router = () => {
     const pageRoutes = routerData.map(({ path, title, element }: routerType) => {

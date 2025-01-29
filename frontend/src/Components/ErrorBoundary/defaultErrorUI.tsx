@@ -1,3 +1,4 @@
+import React from "react";
 import Lottie from "react-lottie";
 import ErrorAnim from "../../assets/lottieAssets/defaultError.json"
 

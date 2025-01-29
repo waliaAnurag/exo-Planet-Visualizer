@@ -2,6 +2,7 @@ import { routerType } from "./types/router.types";
 import Dashboard from "../Containers/dashboard";
 import DetailContainer from "../Containers/detailContainer";
 import LandingPage from "../Containers/landingPage";
+import React from "react";
 
 const routerData:routerType[]=[
     {

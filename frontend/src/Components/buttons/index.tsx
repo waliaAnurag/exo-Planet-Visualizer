@@ -1,3 +1,5 @@
+import React from "react";
+
 interface IProps {
     buttonFunc: (evt: any) => void;
     buttonText: string;

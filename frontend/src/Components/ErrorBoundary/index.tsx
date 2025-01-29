@@ -27,7 +27,7 @@ export default class ErrorBounday extends Component<IProps, IState> {
     }
 
     componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-        console.log(error,errorInfo.componentStack)
+      
         this.setState({
             errorMsg:errorInfo.componentStack ?? "",
             hasError : true
@@ -35,7 +35,7 @@ export default class ErrorBounday extends Component<IProps, IState> {
     }
 
   render() {
-    console.log("I am called",this.state.hasError)
+   
     if(this.state.hasError){
         return <div className='pt-20'>{this.props.useDefaultFallback ? <ErrorDefault /> : this.props.fallback}</div>
     }
